@@ -1,0 +1,5 @@
+name: EdcariaPlugin
+version: 1.0
+author: JupiterPi
+main: de.jupiterpi.mc.edcaria.EdcariaPlugin
+api-version: 1.17
