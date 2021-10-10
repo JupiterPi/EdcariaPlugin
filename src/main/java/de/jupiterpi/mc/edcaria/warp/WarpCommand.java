@@ -1,6 +1,8 @@
 package de.jupiterpi.mc.edcaria.warp;
 
+import de.jupiterpi.mc.edcaria.EdcariaPlugin;
 import jupiterpi.tools.util.AppendingList;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -48,5 +50,9 @@ public class WarpCommand implements CommandExecutor {
         }
 
         return true;
+    }
+
+    public static void register() {
+        EdcariaPlugin.plugin.getCommand("warp").setExecutor(new WarpCommand());
     }
 }
