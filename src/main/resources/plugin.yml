@@ -3,3 +3,7 @@ version: 1.0
 author: JupiterPi
 main: de.jupiterpi.mc.edcaria.EdcariaPlugin
 api-version: 1.17
+commands:
+  warp:
+    description: Warp to positions around the map.
+    usage: /warp <set|to|list> [name]

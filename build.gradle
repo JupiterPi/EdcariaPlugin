@@ -1,0 +1,38 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+    id 'java-library'
+}
+
+group 'de.jupiterpi.mc.edcaria.test2'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://papermc.io/repo/repository/maven-public/"
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT"
+    implementation "jupiterpi:tools:1.3"
+}
+
+tasks.register("installPlugin") {
+    doLast {
+        copy {
+            from 'build/libs/EdcariaPlugin-1.0-SNAPSHOT-all.jar'
+            into "C:\\Users\\jupit\\Desktop\\Edcaria\\Server\\plugins"
+        }
+        println "Copied jar to plugins folder C:\\Users\\jupit\\Desktop\\Edcaria\\Server\\plugins"
+    }
+}
+
+tasks.register("run") {
+    dependsOn tasks.named("shadowJar")
+    dependsOn tasks.named("installPlugin")
+
+    println "executing server..."
+    "cmd /c start /max cmd.exe /c C:\\Users\\jupit\\Desktop\\Edcaria\\Server\\run.bat".execute()
+}
